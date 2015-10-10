@@ -1,1 +1,24 @@
 *~
+
+# Ignore files in the Cyberport cloud archive
+.bash_history
+.bash_logout
+.bashrc
+.cache/
+.ethereum/
+.gitconfig
+.ipynb_checkpoints/
+.ipython/
+.jupyter/
+.local/
+.profile
+.python-eggs/
+.ssh/
+.viminfo
+.w3m/
+Learn Serpent.ipynb
+installing/
+project/
+scpt-private-ethereum-network/
+workshop/
+
