@@ -1,0 +1,48 @@
+
+data player[3](address, commit, choice, has_revealed)
+data num_voters
+data player_map[]
+data reward
+data timer_start
+
+event Notice(x:str)
+
+def init():
+    #If tied, refund to all players
+    self.num_voters = 0
+    
+def add_voter(voter_commitment):
+    #prevents a max callstack exception
+    if self.test_callstack() != 1: return(-1)
+
+    if self.num_voters < 3 and msg.value >= 1000:
+        self.reward = self.reward + msg.value
+        self.player[self.num_voters].address = msg.sender
+        self.player[self.num_voters].commit = voter_commitment
+        self.num_voters = self.num_voters + 1
+        self.player_map[msg.sender] = self.num_voters
+        if msg.value - 1000 > 0:
+            send(0, msg.sender, msg.value-1000)
+        return(0)
+    else:    
+        if msg.value > 0 :
+            # prevent unnecessary leakage of money
+            send(0, msg.sender, msg.value)
+        return(-1)
+
+def open(choice, nonce):
+    pass
+
+def count_vote():
+    log(type=Notice, self.player[0].choice)
+    log(type=Notice, self.player[1].choice)
+    log(type=Notice, self.player[2].choice)
+
+#returns the balance to ensure funds were lost and won properly
+def balance_check():
+    log(self.storage["player1"].balance)
+    log(self.storage["player2"].balance)
+    log(self.storage["player3"].balance)
+
+def test_callstack():
+    return(1)
