@@ -1,0 +1,17 @@
+
+data goodstorage[]
+
+# Note: 
+# self.storage: 32-byte bits (key, value)
+# Python string will be automatically converted to this byte array
+
+def register(key, value:arr):
+    # Key not yet claimed
+    if not self.goodstorage[key]:
+        self.goodstorage[key] = value[1]
+        return(1)
+    else:
+        return(0)  # Key already claimed
+
+def ask(key):
+    return(self.goodstorage[key])
