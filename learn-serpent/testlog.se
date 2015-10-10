@@ -1,0 +1,5 @@
+
+event Notice(x:str)
+
+def test_log():
+    log(type=Notice, text("Hello World!"))
