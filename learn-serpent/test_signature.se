@@ -1,0 +1,14 @@
+def test(x, y, z):
+    return x
+
+def test2(x, y):
+    return x
+
+def test3(x, y: float, z:str):
+    return x
+
+def test4(x, y: float, z:string):
+    return x
+
+def test5(x, y: float, z:sting):
+    return x
